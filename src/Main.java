@@ -62,18 +62,38 @@ public class Main {
         System.out.println("Indexes" + xppl);
 
         //Add x to any absences greater than y
-        System.out.println("What Index would you like to change.");
-        int x1 = keyb.nextInt();
-        System.out.println("How many absences?");
+        System.out.println("What is y?");
         int y = keyb.nextInt();
+        System.out.println("What is x?");
+        int x1 = keyb.nextInt();
         for (int i = 0; i < absList.size(); i++) {
-
+            if (y < absList.get(i)){
+                x1 += absList.get(i);
+                if (x1 < 0){
+                    absList.set(i, 0);
+                }else if(x1 > 15){
+                    absList.set(i, 15);
+                }else{
+                    absList.set(i, x1);
+                }
+            }
         }
+        System.out.println(absList);
 
+        //Sort the absences using a library function.
+        Collections.sort(absList);
+        System.out.println(absList);
 
+        //Shuffle the absences using a library function.
+        Collections.shuffle(absList);
+        System.out.println(absList);
 
+        //How many absences are unique?
+        Set<Integer> Uni = new HashSet<>(absList);
+        int UniqueI = absList.size() - Uni.size();
+        System.out.println("There are" + UniqueI + "absences");
 
-
+        //
 
 
     }
