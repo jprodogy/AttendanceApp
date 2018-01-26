@@ -61,7 +61,14 @@ public class Main {
         }
         System.out.println("Indexes" + xppl);
 
-        //
+        //Add x to any absences greater than y
+        System.out.println("What Index would you like to change.");
+        int x1 = keyb.nextInt();
+        System.out.println("How many absences?");
+        int y = keyb.nextInt();
+        for (int i = 0; i < absList.size(); i++) {
+
+        }
 
 
 
