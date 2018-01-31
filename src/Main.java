@@ -14,16 +14,15 @@ public class Main {
 
         attendance attApp = new attendance(name);
 
-        System.out.println(attApp.perfectA() +  " people had perfect attendance");
+        System.out.println(attApp.perfectA() +  " people had perfect attendance\n");
         System.out.println("The average is of absences is " + attApp.average());
-        System.out.printf("%.0f percent\n", attApp.perfectPercent());
+        System.out.printf("\n%.0f percent\n", attApp.perfectPercent());
         attApp.absence();
         attApp.absenceCh();
         attApp.sortAbs();
         attApp.shuffle();
         System.out.println("There are " + attApp.UniqueAbs() + " absences");
-
-
+        attApp.absenceVal();
 
     }
 }

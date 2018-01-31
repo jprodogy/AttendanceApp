@@ -88,12 +88,14 @@ public class attendance {
     public void sortAbs(){
         Collections.sort(absList);
         System.out.println(absList);
+        System.out.println();
     }
 
     //Shuffle the absences using a library function.
     public void shuffle(){
         Collections.shuffle(absList);
         System.out.println(absList);
+        System.out.println();
     }
 
     //How many absences are unique?
@@ -104,12 +106,21 @@ public class attendance {
     }
 
     //How many of each absence value are there?
-    public int absenceVal(){
-        Map<Integer, String> intMap = new HashMap<>();
-        for (int i = 0; i < absList.size(); i++) {
-            intMap.put(absList.get(i), "*");
+    public void absenceVal(){
+        Map<Integer, ArrayList<String>> intMap = new HashMap<>();
+        for (int j = 0; j <= 15; j++) {
+            ArrayList<String> intList = new ArrayList<>();
+            for (int i = 0; i < absList.size(); i++) {
+                if (j == absList.get(i)){
+                    intList.add("*");
+                }
+            }
+            intMap.put(j, intList);
         }
-        System.out.println(intMap.get(15));
-        return 0;
+        for (int i = 0; i < intMap.size(); i++) {
+            System.out.printf("%d %s\n",i,intMap.get(i));
+        }
+
+
     }
 }
