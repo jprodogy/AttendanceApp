@@ -7,7 +7,7 @@ public class Main {
         //add a welcome message for the user
         System.out.println("\n\nHello, AttendanceApp!\n");
 
-        //read the users name and output it as the apps welcome message
+        //read the users name, output it as the apps welcome message
         System.out.println("What is your name?");
         String name = keyb.next();
         System.out.printf("Hello %s, AttendanceApp!\n\n", name);
