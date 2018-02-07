@@ -1,17 +1,23 @@
 import java.util.*;
 
 public class attendance {
-    Scanner keyb = new Scanner(System.in);
     private ArrayList<Integer> absList;
+    private ArrayList<Integer> sortList;
+    private ArrayList<Integer> randList;
+    private Random rand;
 
-    //create then output the list of absences
+    //*create then output the list of absences
     public attendance(String name){
         absList = new ArrayList<>();
-        Random rand = new Random();
+        rand = new Random();
         for (int i = 0; i < name.length(); i++) {
             absList.add(rand.nextInt(11));
         }
-        System.out.println("The elements are " + absList);
+
+    }
+
+    public ArrayList<Integer> elements(){
+        return absList;
     }
 
     //calculate how many students had perfect attendance
@@ -49,10 +55,8 @@ public class attendance {
         return percent;
     }
 
-    //Which students had [X] absences?
-    public void absence(){
-        System.out.println("How many absences?");
-        int x = keyb.nextInt();
+    //*Which students had [X] absences?
+    public ArrayList<Integer> absence(int x){
         ArrayList<Integer> xppl = new ArrayList<>();
 
         for (int i = 0; i < absList.size(); i++) {
@@ -60,15 +64,11 @@ public class attendance {
                 xppl.add(i);
             }
         }
-        System.out.println("Indexes: " + xppl);;
+        return xppl;
     }
 
-    //Add x to any absences greater than y
-    public void absenceCh(){
-        System.out.println("What is y?");
-        int y = keyb.nextInt();
-        System.out.println("What is x?");
-        int x1 = keyb.nextInt();
+    //*Add x to any absences greater than y
+    public ArrayList<Integer> absenceCh(int y, int x1){
         for (int i = 0; i < absList.size(); i++) {
             if (y < absList.get(i)){
                 x1 += absList.get(i);
@@ -81,21 +81,19 @@ public class attendance {
                 }
             }
         }
-        System.out.println(absList);
+        return absList;
     }
 
-    //Sort the absences using a library function.
-    public void sortAbs(){
+    //*Sort the absences using a library function.
+    public ArrayList<Integer> sortAbs(){
         Collections.sort(absList);
-        System.out.println(absList);
-        System.out.println();
+        return absList;
     }
 
-    //Shuffle the absences using a library function.
-    public void shuffle(){
+    //*Shuffle the absences using a library function.
+    public ArrayList<Integer> shuffle(){
         Collections.shuffle(absList);
-        System.out.println(absList);
-        System.out.println();
+        return absList;
     }
 
     //How many absences are unique?
@@ -105,8 +103,8 @@ public class attendance {
         return UniqueI;
     }
 
-    //How many of each absence value are there?
-    public void absenceVal(){
+    //*How many of each absence value are there?
+    public Map<Integer, ArrayList<String>> absenceVal(){
         Map<Integer, ArrayList<String>> intMap = new HashMap<>();
         for (int j = 0; j <= 15; j++) {
             ArrayList<String> intList = new ArrayList<>();
@@ -117,14 +115,12 @@ public class attendance {
             }
             intMap.put(j, intList);
         }
-        for (int i = 0; i < intMap.size(); i++) {
-            System.out.printf("%d %s\n",i,intMap.get(i));
-        }
+       return intMap;
     }
 
     //write a user defined sort function
     public ArrayList<Integer> USort(){
-        ArrayList<Integer> sortList = new ArrayList<>();
+        sortList = new ArrayList<>();
         for (int i = 0; i < 16; i++) {
             if (absList.contains(i)){
                 for (int j = 0; j < absList.size(); j++) {
@@ -136,13 +132,14 @@ public class attendance {
         return sortList;
     }
 
-    public void URandom(){
-        ArrayList<Integer> ranList = new ArrayList<>();
+    //write a user defined random function
+    public ArrayList<Integer> URandom(){
+        randList = new ArrayList<>();
+        rand = new Random();
         for (int i = 0; i < absList.size(); i++) {
-            for (int j = 0; j < absList.size(); j++){
-
-            }
+            randList.add(rand.nextInt(randList.size() + 1), absList.get(i));
         }
+        return randList;
     }
 
 }
