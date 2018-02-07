@@ -23,6 +23,7 @@ public class Main {
         attApp.shuffle();
         System.out.println("There are " + attApp.UniqueAbs() + " absences");
         attApp.absenceVal();
+        System.out.println(attApp.USort());
 
     }
 }

@@ -120,7 +120,29 @@ public class attendance {
         for (int i = 0; i < intMap.size(); i++) {
             System.out.printf("%d %s\n",i,intMap.get(i));
         }
-
-
     }
+
+    //write a user defined sort function
+    public ArrayList<Integer> USort(){
+        ArrayList<Integer> sortList = new ArrayList<>();
+        for (int i = 0; i < 16; i++) {
+            if (absList.contains(i)){
+                for (int j = 0; j < absList.size(); j++) {
+                    if (i == absList.get(j))
+                    sortList.add(absList.get(j));
+                }
+            }
+        }
+        return sortList;
+    }
+
+    public void URandom(){
+        ArrayList<Integer> ranList = new ArrayList<>();
+        for (int i = 0; i < absList.size(); i++) {
+            for (int j = 0; j < absList.size(); j++){
+
+            }
+        }
+    }
+
 }
