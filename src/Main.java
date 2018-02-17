@@ -34,28 +34,46 @@ public class Main {
         int average = absences.average();
         System.out.println("The average is of absences is " + average);
 
-        //
+        //find percentage of students with perfect attendance out of people with lesser than 3 absences
         double perfectPer = absences.perfectPercent();
         System.out.printf("\n%.0f percent\n", perfectPer);
 
-        //
+        //Which students had [X] absences?
         System.out.println("How many absences?");
         int x = keyb.nextInt();
+        ArrayList<Integer> xAbs = absences.absence(x);
+        System.out.println("Indexes:" + xAbs);
 
-        System.out.println("Indexes:" + absences.absence(x));
-
-
+        //Add x to any absences greater than y
         System.out.println("What is y?");
         int y = keyb.nextInt();
         System.out.println("What is x?");
         int x1 = keyb.nextInt();
         System.out.println(absences.absenceCh(y, x1));
-        System.out.println(absences.sortAbs());
+
+        //Sort the absences using a library function.
+        ArrayList<Integer> sortList = absences.sortAbs();
+        System.out.println(sortList);
+
+        //Shuffle the absences using a library function.
+        ArrayList<Integer> randList = absences.shuffle();
         System.out.println(absences.shuffle());
-        System.out.println("There are " + absences.UniqueAbs() + " absences");
-        System.out.println(absences.absenceVal());
-        System.out.println(absences.USort());
-        System.out.println(absences.URandom());
+
+        //How many absences are unique?
+        int Unique = absences.UniqueAbs();
+        System.out.println("There are " + Unique + " absences");
+
+        //How many of each absence value are there?
+        Map<Integer, ArrayList<String>> absVal = absences.absenceVal();
+        System.out.println(absVal);
+
+        //write a user defined sort function
+        ArrayList<Integer> USortList = absences.USort();
+        System.out.println(USortList);
+
+        //write a user defined random function
+        ArrayList<Integer> URandList = absences.URandom();
+        System.out.println(URandList);
 
 
     }
