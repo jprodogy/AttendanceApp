@@ -4,7 +4,10 @@ public class attendance {
     private ArrayList<Integer> absList;
     private ArrayList<Integer> sortList;
     private ArrayList<Integer> randList;
+    private ArrayList<String> namesList;
+    private ArrayList<String> randNList;
     private Random rand;
+
 
     //*create then output the list of absences
     public attendance(String name){
@@ -142,4 +145,31 @@ public class attendance {
         return randList;
     }
 
+    public ArrayList<String> namesGen() {
+        namesList = new ArrayList<>();
+        namesList.add("Chris");
+        namesList.add("Thomas");
+        namesList.add("Joseph");
+        namesList.add("Connor");
+        namesList.add("Lorien");
+        return namesList;
+    }
+
+    public ArrayList<String> shuffleNames(){
+        rand = new Random();
+        randList = new ArrayList<>();
+        for (int i = 0; i < namesList.size(); i++) {
+            randNList.add(rand.nextInt(randList.size() + 1), namesList.get(i));
+        }
+        return randNList;
+    }
+
+    //Using the 5 names, create another list that has the same size as the absences list.
+    public ArrayList<String> newAbsList() {
+        ArrayList<String> newabsList1 = new ArrayList<>();
+        for (int i = 0; i < absList.size(); i++) {
+
+        }
+        return newabsList1;
+    }
 }
