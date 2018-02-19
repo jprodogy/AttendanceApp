@@ -23,8 +23,11 @@ public class Record {
     public LocalDate getDateOfLastAbsence(){
         return dateOfLastAbsence;
     }
+    
 
-
+    public void setAbsence(int absences) {
+        absence = absences;
+    }
 
 
 }
