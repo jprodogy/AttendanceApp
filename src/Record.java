@@ -52,5 +52,8 @@ public class Record {
         lastDateAttendance = date;
     }
 
+    public boolean equals(){
+
+    }
 
 }
