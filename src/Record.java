@@ -23,10 +23,33 @@ public class Record {
     public LocalDate getDateOfLastAbsence(){
         return dateOfLastAbsence;
     }
-    
 
-    public void setAbsence(int absences) {
-        absence = absences;
+    public LocalDate getDateAllAbsent(){
+        return dateAllAbsent;
+    }
+
+    public LocalDate getLastDateAttendance(){
+        return lastDateAttendance;
+    }
+
+    public void setAbsence(int abs) {
+        absence = abs;
+    }
+
+    public void  setName(String n){
+        name = n;
+    }
+
+    public void setDateOfLastAbsence(LocalDate date){
+        dateOfLastAbsence = date;
+    }
+
+    public void setDateAllAbsent(LocalDate date){
+        dateAllAbsent = date;
+    }
+
+    public void setLastDateAttendance(LocalDate date){
+        lastDateAttendance = date;
     }
 
 
