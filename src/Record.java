@@ -17,8 +17,13 @@ public class Record {
     }
 
     public String getName(){
-        return getName();
-    }//
+        return name;
+    }
+
+    public LocalDate getDateOfLastAbsence(){
+        return dateOfLastAbsence;
+    }
+
 
 
 
