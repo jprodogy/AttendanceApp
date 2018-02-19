@@ -10,7 +10,6 @@ public class attendance {
 
 
     //*create then output the list of absencesgafdsgafd
-    hello world
     public attendance(String name){
         absList = new ArrayList<>();
         rand = new Random();
