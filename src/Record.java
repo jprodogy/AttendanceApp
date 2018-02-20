@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Record {
     private int absence;
@@ -52,8 +53,24 @@ public class Record {
         lastDateAttendance = date;
     }
 
-    public boolean equals(){
+    @Override
+    public boolean equals(Object o) {
+        if (this == o){
+            return true;
+        }else {
+            return false;
+        }
 
     }
 
+    @Override
+    public String toString() {
+        return "Record{" +
+                "absence=" + absence +
+                ", name='" + name + '\'' +
+                ", dateOfLastAbsence=" + dateOfLastAbsence +
+                ", dateAllAbsent=" + dateAllAbsent +
+                ", lastDateAttendance=" + lastDateAttendance +
+                '}';
+    }
 }
