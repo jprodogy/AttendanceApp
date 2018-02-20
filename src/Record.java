@@ -5,12 +5,11 @@ public class Record {
     private int absence;
     private String name;
     private LocalDate dateOfLastAbsence;
-    private LocalDate dateAllAbsent;
-    private LocalDate lastDateAttendance;
 
-    public Record(){
-
-
+    public Record(int abs, String n, LocalDate date) {
+        absence = abs;
+        name = n;
+        dateOfLastAbsence = date;
     }
 
     public int getAbsence(){
@@ -25,13 +24,6 @@ public class Record {
         return dateOfLastAbsence;
     }
 
-    public LocalDate getDateAllAbsent(){
-        return dateAllAbsent;
-    }
-
-    public LocalDate getLastDateAttendance(){
-        return lastDateAttendance;
-    }
 
     public void setAbsence(int abs) {
         absence = abs;
@@ -45,13 +37,6 @@ public class Record {
         dateOfLastAbsence = date;
     }
 
-    public void setDateAllAbsent(LocalDate date){
-        dateAllAbsent = date;
-    }
-
-    public void setLastDateAttendance(LocalDate date){
-        lastDateAttendance = date;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -69,8 +54,6 @@ public class Record {
                 "absence=" + absence +
                 ", name='" + name + '\'' +
                 ", dateOfLastAbsence=" + dateOfLastAbsence +
-                ", dateAllAbsent=" + dateAllAbsent +
-                ", lastDateAttendance=" + lastDateAttendance +
                 '}';
     }
 }
