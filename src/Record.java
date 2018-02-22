@@ -6,11 +6,14 @@ public class Record {
     private String name;
     private LocalDate dateOfLastAbsence;
 
-    public Record(int abs, String n, LocalDate date) {
-        absence = abs;
-        name = n;
-        dateOfLastAbsence = date;
+
+    public Record() {
+        absence = 0;
+        name = "";
+        dateOfLastAbsence = null;
+
     }
+
 
     public int getAbsence(){
         return absence;
@@ -40,13 +43,14 @@ public class Record {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o){
-            return true;
-        }else {
-            return false;
-        }
-
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Record record = (Record) o;
+        return absence == record.absence &&
+                Objects.equals(name, record.name) &&
+                Objects.equals(dateOfLastAbsence, record.dateOfLastAbsence);
     }
+
 
     @Override
     public String toString() {

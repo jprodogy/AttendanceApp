@@ -9,7 +9,7 @@ public class attendance {
     private Random rand;
 
 
-    //*create then output the list of absencesgafdsgafd
+    //*create then output the list of absences
     public attendance(String name){
         absList = new ArrayList<>();
         rand = new Random();
