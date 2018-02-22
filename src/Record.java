@@ -11,8 +11,14 @@ public class Record {
         absence = 0;
         name = "";
         dateOfLastAbsence = null;
-
     }
+
+   public Record(int abs, String n, LocalDate date){
+        absence = abs;
+        name = n;
+        dateOfLastAbsence = date;
+   }
+
 
 
     public int getAbsence(){
