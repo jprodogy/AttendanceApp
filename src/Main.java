@@ -6,7 +6,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner keyb = new Scanner(System.in);
 
-        System.out.println(records(3));
+        ArrayList<Record> records = recordGener(3);
+        System.out.println(records);
+
+        ArrayList<String> leastAbsNames = NameLeastAbsences(records);
+        System.out.println(leastAbsNames);
 
 
 
@@ -14,7 +18,7 @@ public class Main {
 
     }
 
-    public static ArrayList<Record> records(int numRec){
+    public static ArrayList<Record> recordGener(int numRec){
         ArrayList<Record> records = new ArrayList<>();
         Random rand = new Random();
         ArrayList<String> names = new ArrayList<>();
@@ -39,9 +43,10 @@ public class Main {
         return records;
     }
 
-    /*
+
     // which students have the least absences
-    public static ArrayList<String> NameLeastAbsences(){
+    public static ArrayList<String> NameLeastAbsences(ArrayList<Record> record){
+        ArrayList<String> leastAbsNames = new ArrayList<>();
         String leastAbs = record.get(0).getName();
         int lowAbsences = record.get(0).getAbsence();
         for (int i = 0; i < record.size(); i++) {
@@ -50,7 +55,8 @@ public class Main {
                 leastAbs = record.get(i).getName();
             }
         }
-    }*/
+        return leastAbsNames;
+    }
 }
 
 
