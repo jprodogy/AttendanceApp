@@ -44,7 +44,7 @@ public class Main {
     }
 
 
-    // which students have the least absences
+    // which students have the least absences/ still figuring out how to do this 
     public static ArrayList<String> NameLeastAbsences(ArrayList<Record> record){
         ArrayList<String> leastAbsNames = new ArrayList<>();
         String leastAbs = record.get(0).getName();
@@ -53,6 +53,13 @@ public class Main {
             if (lowAbsences > record.get(i).getAbsence()){
                 lowAbsences = record.get(i).getAbsence();
                 leastAbs = record.get(i).getName();
+            }
+        }
+        leastAbsNames.add(leastAbs);
+        for (int i = 0; i < record.size(); i++) {
+            if (lowAbsences == record.get(i).getAbsence()){
+                leastAbsNames.add(record.get(i).getName());
+
             }
         }
         return leastAbsNames;
