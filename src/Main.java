@@ -5,29 +5,52 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner keyb = new Scanner(System.in);
-        ArrayList<Record> RList = new ArrayList<>();
-        RList.add(new Record(10, "Jordan", LocalDate.of(2018, 3, 26)));
-        RList.add(new Record(15, "Chris", LocalDate.of(2018, 7, 18)));
-        RList.add(new Record(3, "James", LocalDate.of(2018, 5, 2)));
-        RList.add(new Record(7, "Michael", LocalDate.of(2017, 12, 1)));
-        RList.add(new Record(4, "Connor", LocalDate.of(2018, 2, 17)));
-        RList.add(new Record(11, "John", LocalDate.of(2017, 10, 23)));
-        RList.add(new Record(17, "Carl", LocalDate.of(2017, 8, 9)));
 
-        // which students have the least absences
-        String lowName = RList.get(0).getName();
-        int lowAbsences = RList.get(0).getAbsence();
-        for (int i = 0; i < RList.size(); i++) {
-            if (lowAbsences > RList.get(i).getAbsence()){
-                lowAbsences = RList.get(i).getAbsence();
-                lowName = RList.get(i).getName();
-            }
-        }
+        System.out.println(records(3));
 
-        //
+
+
 
 
     }
+
+    public static ArrayList<Record> records(int numRec){
+        ArrayList<Record> records = new ArrayList<>();
+        Random rand = new Random();
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Jordan");
+        names.add("Chris");
+        names.add("James");
+        names.add("Michael");
+        names.add("Connor");
+        names.add("John");
+        names.add("Carl");
+        names.add("Robert");
+        names.add("Mark");
+        names.add("Myles");
+        names.add("Kenny");
+        names.add("Thomas");
+        for (int i = 0; i < numRec; i++) {
+            String uniName = names.get(rand.nextInt(12));
+            int abs = rand.nextInt(20);
+            LocalDate dates = LocalDate.now().minusDays(rand.nextInt(30)).minusMonths(rand.nextInt(12)).minusYears(rand.nextInt(10));
+            records.add(new Record(abs, uniName, dates));
+        }
+        return records;
+    }
+
+    /*
+    // which students have the least absences
+    public static ArrayList<String> NameLeastAbsences(){
+        String leastAbs = record.get(0).getName();
+        int lowAbsences = record.get(0).getAbsence();
+        for (int i = 0; i < record.size(); i++) {
+            if (lowAbsences > record.get(i).getAbsence()){
+                lowAbsences = record.get(i).getAbsence();
+                leastAbs = record.get(i).getName();
+            }
+        }
+    }*/
 }
 
 

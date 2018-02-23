@@ -10,7 +10,7 @@ public class Record {
     public Record() {
         absence = 0;
         name = "";
-        dateOfLastAbsence = null;
+        dateOfLastAbsence = LocalDate.now();
     }
 
    public Record(int abs, String n, LocalDate date){
