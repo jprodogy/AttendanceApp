@@ -9,8 +9,8 @@ public class Main {
         ArrayList<Record> records = recordGener(3);
         System.out.println(records);
 
-        ArrayList<String> leastAbsNames = NameLeastAbsences(records);
-        System.out.println(leastAbsNames);
+        int min = Minimum(records);
+        NameLeastAbsences(records, min);
 
 
 
@@ -43,23 +43,23 @@ public class Main {
         return records;
     }
 
-
-    // which students have the least absences/ still figuring out how to do this 
-    public static ArrayList<String> NameLeastAbsences(ArrayList<Record> record){
-        ArrayList<String> leastAbsNames = new ArrayList<>();
-        String leastAbs = record.get(0).getName();
-        int lowAbsences = record.get(0).getAbsence();
+    public static int Minimum(ArrayList<Record> record){
+        int lowAbsence = record.get(0).getAbsence();
         for (int i = 0; i < record.size(); i++) {
-            if (lowAbsences > record.get(i).getAbsence()){
-                lowAbsences = record.get(i).getAbsence();
-                leastAbs = record.get(i).getName();
+            if (lowAbsence > record.get(i).getAbsence()) {
+                lowAbsence = record.get(i).getAbsence();
+
             }
         }
-        leastAbsNames.add(leastAbs);
-        for (int i = 0; i < record.size(); i++) {
-            if (lowAbsences == record.get(i).getAbsence()){
-                leastAbsNames.add(record.get(i).getName());
+        return lowAbsence;
+    }
 
+    // which students have the least absences/ still figuring out how to do this
+    public static ArrayList<String> NameLeastAbsences(ArrayList<Record> record, int min){
+        ArrayList<String> leastAbsNames = new ArrayList<>();
+        for (int i = 0; i < record.size(); i++) {
+            if (min == record.get(i).getAbsence()) {
+                leastAbsNames.add(record.get(i).getName());
             }
         }
         return leastAbsNames;
