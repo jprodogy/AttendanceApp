@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -12,6 +13,8 @@ public class Main {
 
         ArrayList<String> studentsWithMinAbsences = NameLeastAbsences(records);
         System.out.println(studentsWithMinAbsences);
+
+
 
 
 
@@ -54,6 +57,28 @@ public class Main {
             }
         }
         return leastAbsNames;
+    }
+
+    public static ArrayList<String> StudentsFE(ArrayList<Record> record, int FE){
+        ArrayList<String> studentFe = new ArrayList<>();
+        for(Record myRecord: record){
+            if (FE <= myRecord.getAbsence()){
+                studentFe.add(myRecord.getName());
+            }
+        }
+        return studentFe;
+    }
+    
+
+    public static LocalDate FELastAbsDate(ArrayList<Record> record){
+        LocalDate lowDate = record.get(0).getDateOfLastAbsence();
+        for (Record myRecord: record) {
+            if (lowDate.isBefore(lowDate)) {
+                lowDate = myRecord.getDateOfLastAbsence();
+            }
+        }
+        return lowDate;
+
     }
 }
 
