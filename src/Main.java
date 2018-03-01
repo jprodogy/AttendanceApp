@@ -7,6 +7,8 @@ public class Main {
     static final int RANGE_OF_MONTHS = 12;
     static final int RANGE_OF_YEARS = 10;
     static final int NUM_ABSENCES = 20;
+    static final int NUM_DAYS_FE = 20;
+
 
     public static void main(String[] args) {
         Scanner keyb = new Scanner(System.in);
@@ -17,6 +19,9 @@ public class Main {
 
         ArrayList<String> studentsWithMinAbsences = NameLeastAbsences(records);
         System.out.println(studentsWithMinAbsences);
+
+        ArrayList<String> studentNamesFE = StudentsFE(records, NUM_DAYS_FE);
+        System.out.println(studentNamesFE);
 
 
 
@@ -85,7 +90,7 @@ public class Main {
         return lowDate;
 
     }
-    
+
 }
 
 
