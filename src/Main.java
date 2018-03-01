@@ -3,6 +3,10 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class Main {
+    static final int RANGE_OF_DAYS = 30;
+    static final int RANGE_OF_MONTHS = 12;
+    static final int RANGE_OF_YEARS = 10;
+    static final int NUM_ABSENCES = 20;
 
     public static void main(String[] args) {
         Scanner keyb = new Scanner(System.in);
@@ -23,15 +27,16 @@ public class Main {
     }
 
     public static ArrayList<Record> RecordGener(int numRec){
+
         ArrayList<Record> records = new ArrayList<>();
         Random rand = new Random();
         ArrayList<String> names = new ArrayList<>();
         String[] approvedNames = { "Jordan", "Chris", "James", "Michael", "Connor", "John", "Carl", "Robert", "Mark", "Myles", "Kenny", "Thomas"};
         names.addAll(Arrays.asList(approvedNames));
         for (int i = 0; i < numRec; i++) {
-            String uniName = names.get(rand.nextInt(12));
-            int abs = rand.nextInt(20);
-            LocalDate dates = LocalDate.now().minusDays(rand.nextInt(30)).minusMonths(rand.nextInt(12)).minusYears(rand.nextInt(10));
+            String uniName = names.get(rand.nextInt(approvedNames.length));
+            int abs = rand.nextInt(NUM_ABSENCES);
+            LocalDate dates = LocalDate.now().minusDays(rand.nextInt(RANGE_OF_DAYS)).minusMonths(rand.nextInt(RANGE_OF_MONTHS)).minusYears(rand.nextInt(RANGE_OF_YEARS));
             records.add(new Record(abs, uniName, dates));
         }
         return records;
@@ -68,7 +73,7 @@ public class Main {
         }
         return studentFe;
     }
-    
+
 
     public static LocalDate FELastAbsDate(ArrayList<Record> record){
         LocalDate lowDate = record.get(0).getDateOfLastAbsence();
@@ -80,6 +85,7 @@ public class Main {
         return lowDate;
 
     }
+    
 }
 
 
