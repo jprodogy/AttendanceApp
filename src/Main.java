@@ -80,11 +80,11 @@ public class Main {
     }
 
 
-    public static LocalDate FELastAbsDate(ArrayList<Record> record){
+    public static LocalDate FELastAbsDate(ArrayList<Record> record, ArrayList<String> names){
         LocalDate lowDate = record.get(0).getDateOfLastAbsence();
-        for (Record myRecord: record) {
-            if (lowDate.isBefore(lowDate)) {
-                lowDate = myRecord.getDateOfLastAbsence();
+        for (int i = 0; i < record.size(); i++) {
+            if (lowDate.isBefore(lowDate) && record.get(i).getName() == names.get(i)) {
+                lowDate = record.get(i).getDateOfLastAbsence();
             }
         }
         return lowDate;
@@ -92,5 +92,6 @@ public class Main {
     }
 
 }
+
 
 
